@@ -1,23 +1,17 @@
 package com.example.tp_app;
 
-import android.R;
-import android.app.Activity;
+import org.apache.cordova.DroidGap;
+
 import android.os.Bundle;
-import android.view.Menu;
 
-public class MainActivity extends Activity {
+public class MainActivity extends DroidGap {
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+		super.init();
+		super.setIntegerProperty("splashscreen", R.drawable.splash);
+		super.loadUrl("file:///android_asset/www/index.html", 2000);
 	}
 
 }
